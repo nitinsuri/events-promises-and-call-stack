@@ -6,36 +6,29 @@ export default function App() {
   function logger() {
     setLogMessages([]);
 
-    async function f() {
-      setLogMessages((logMessages) => [
-        ...logMessages,
-        "I'm the FIRST message.",
-      ]);
-    }
-    setLogMessages((logMessages) => [
-      ...logMessages,
-      "I'm the SECOND message.",
-    ]);
+    setLogMessages((logMessages) => [...logMessages, "I'm the FIRST message."]);
 
     setTimeout(() => {
       setLogMessages((logMessages) => [
         ...logMessages,
-        "I'm the THIRD message.",
+        "I'm the SECOND message.",
       ]);
     });
 
     new Promise((resolve, reject) => {
-      resolve("I'm the FOURTH message.");
+      resolve("I'm the THIRD message.");
     }).then((message) =>
       setLogMessages((logMessages) => [...logMessages, message])
     );
 
-    setLogMessages((logMessages) => [...logMessages, "I'm the FIFTH message."]);
-    f();
+    setLogMessages((logMessages) => [
+      ...logMessages,
+      "I'm the FOURTH message.",
+    ]);
   }
   return (
     <div>
-      <h1>Events, Promises, and call-stack</h1>
+      <h1>Events-loop, Promises, and Call-stack</h1>
       <button onClick={() => logger()}>Hit me up to see the magic!</button>
       {logMessages?.map((message) => (
         <p>{message}</p>
