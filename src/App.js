@@ -26,7 +26,7 @@ export default function App() {
   return (
     <div>
       <h1>Events, Promises, and call-stack</h1>
-      <button onClick={() => logger()}>Hit me hard!</button>
+      <button onClick={() => logger()}>Hit me up to see the magic!</button>
       {logMessages?.map((message) => (
         <p>{message}</p>
       ))}
