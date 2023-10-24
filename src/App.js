@@ -6,22 +6,32 @@ export default function App() {
   function logger() {
     setLogMessages([]);
 
-    setLogMessages((logMessages) => [...logMessages, "I'm the FIRST message."]);
+    async function f() {
+      setLogMessages((logMessages) => [
+        ...logMessages,
+        "I'm the FIRST message.",
+      ]);
+    }
+    setLogMessages((logMessages) => [
+      ...logMessages,
+      "I'm the SECOND message.",
+    ]);
 
     setTimeout(() => {
       setLogMessages((logMessages) => [
         ...logMessages,
-        "I'm the SECOND message.",
+        "I'm the THIRD message.",
       ]);
     });
 
     new Promise((resolve, reject) => {
-      resolve("I'm the THIRD message.");
+      resolve("I'm the FOURTH message.");
     }).then((message) =>
       setLogMessages((logMessages) => [...logMessages, message])
     );
 
-    setLogMessages((logMessages) => [...logMessages, "I'm the LAST message."]);
+    setLogMessages((logMessages) => [...logMessages, "I'm the FIFTH message."]);
+    f();
   }
   return (
     <div>
