@@ -1,27 +1,35 @@
 import React from 'react';
-import './style.scss';
+import './style.css';
 
 export default function App() {
+  const [logMessages, setLogMessages] = React.useState([]);
   function logger() {
-    console.log("I'm the FIRST log.");
+    setLogMessages([]);
+
+    setLogMessages((logMessages) => [...logMessages, "I'm the FIRST message."]);
 
     setTimeout(() => {
-      console.log("I'm the SECOND log.");
+      setLogMessages((logMessages) => [
+        ...logMessages,
+        "I'm the SECOND message.",
+      ]);
     });
 
     new Promise((resolve, reject) => {
-      resolve("I'm the THIRD log.");
-    }).then((message) => console.log(message));
+      resolve("I'm the THIRD message.");
+    }).then((message) =>
+      setLogMessages((logMessages) => [...logMessages, message])
+    );
 
-    console.log("I'm the LAST log.");
+    setLogMessages((logMessages) => [...logMessages, "I'm the LAST message."]);
   }
   return (
     <div>
       <h1>Events, Promises, and call-stack</h1>
-      <p>Look under the hood after hitting the button below!</p>
-      <p>
-        <button onClick={() => logger()}>Hit me hard!</button>
-      </p>
+      <button onClick={() => logger()}>Hit me hard!</button>
+      {logMessages?.map((message) => (
+        <p>{message}</p>
+      ))}
     </div>
   );
 }

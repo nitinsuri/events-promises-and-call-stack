@@ -1,0 +1,60 @@
+:root {
+  --highlight-color: #376437;
+  --secondary-color: #f0fbf0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Albert Sans', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: 'Albert Sans', system-ui, sans-serif;
+  color: black;
+  background-color: #fff;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+button {
+  background-color: transparent;
+  border: 1px solid #999;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 2px 2px;
+  color: #333;
+  cursor: pointer;
+  font-weight: 700;
+  line-height: 1;
+  padding: 1em 2em;
+  text-decoration: none;
+  transition: all 0.25s;
+}
+button:hover {
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+p {
+  border-left: 3px solid var(--highlight-color);
+  padding-block: 0.75em;
+  padding-inline: 0.5em 0;
+  position: relative;
+}
+p::before {
+  background-color: var(--secondary-color);
+  content: '';
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 0%;
+  z-index: -1;
+  transition: 0.25s ease-out;
+}
+p:hover::before {
+  width: 100%;
+}
