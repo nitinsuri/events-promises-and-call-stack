@@ -6,10 +6,10 @@ export default function App() {
   function logger() {
     setLogMessages([]);
 
-    setLogMessages(logMessages => [...logMessages, "I'm the FIRST message."]);
+    setLogMessages((logMessages) => [...logMessages, "I'm the FIRST message."]);
 
     setTimeout(() => {
-      setLogMessages(logMessages => [
+      setLogMessages((logMessages) => [
         ...logMessages,
         "I'm the SECOND message.",
       ]);
@@ -18,10 +18,10 @@ export default function App() {
     new Promise((resolve, reject) => {
       resolve("I'm the THIRD message.");
     }).then((message) =>
-      setLogMessages(logMessages => [...logMessages, message])
+      setLogMessages((logMessages) => [...logMessages, message])
     );
 
-    setLogMessages(logMessages => [
+    setLogMessages((logMessages) => [
       ...logMessages,
       "I'm the FOURTH message.",
     ]);
