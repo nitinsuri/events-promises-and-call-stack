@@ -30,8 +30,8 @@ export default function App() {
     <div>
       <h1>Events-loop, Promises, and Call-stack</h1>
       <button onClick={() => logger()}>Hit me up to see the magic!</button>
-      {logMessages?.map((message) => (
-        <p>{message}</p>
+      {logMessages?.map((message, idx) => (
+        <p key={idx}>{message}</p>
       ))}
     </div>
   );
