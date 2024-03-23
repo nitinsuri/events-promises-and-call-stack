@@ -16,6 +16,13 @@ export default function App() {
     });
 
     new Promise((resolve, reject) => {
+      setTimeout(() => {
+        new Promise((resolve, reject) => {
+          resolve("I'm the nested time out message inside the promise.");
+        }).then((message) =>
+          setLogMessages((logMessages) => [...logMessages, message])
+        );
+      });
       resolve("I'm the THIRD message.");
     }).then((message) =>
       setLogMessages((logMessages) => [...logMessages, message])
