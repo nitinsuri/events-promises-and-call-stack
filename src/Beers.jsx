@@ -9,13 +9,18 @@ export default function Beers() {
     <div className="App">
       {loading && <p>{loading}</p>}
       {error && <p className={'error-message'}>{error}</p>}
-      {data?.map((item) => {
-        const { name, brand, malts, alcohol, style } = item;
-
-        <div>
-          {name} {brand}
-        </div>;
-      })}
+      {
+        <ul>
+          {data?.map((item) => {
+            const { name, brand, malts, style, alcohol } = item;
+            return (
+              <li>
+                {name} | {brand} | {malts} | {style} | {alcohol}
+              </li>
+            );
+          })}
+        </ul>
+      }
     </div>
   );
 }
