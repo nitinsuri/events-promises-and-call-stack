@@ -25,5 +25,5 @@ export default function PromiseCart() {
 }
 
 function validateCart() {
-  return false;
+  return true;
 }
