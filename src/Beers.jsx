@@ -12,7 +12,9 @@ export default function Beers() {
       {data?.map((item) => {
         const { name, brand, malts, alcohol, style } = item;
 
-        <div>{name}</div>;
+        <div>
+          {name} {brand}
+        </div>;
       })}
     </div>
   );
