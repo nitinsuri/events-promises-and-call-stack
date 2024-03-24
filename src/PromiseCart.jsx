@@ -2,12 +2,16 @@ export default function PromiseCart() {
   const cart = ['shoes', 'kurta', 'jeans'];
   const promise = createOrder(cart);
 
-  promise.then(function (ordID) {
-    console.log(ordID);
-  });
+  promise
+    .then(function (ordID) {
+      console.log(ordID);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
   function createOrder(cart) {
     return new Promise((resolve, reject) => {
-      if (!validateCart) {
+      if (!validateCart()) {
         const err = new Error('Something is not right!');
         reject(err);
       }
@@ -21,5 +25,5 @@ export default function PromiseCart() {
 }
 
 function validateCart() {
-  return true;
+  return false;
 }
