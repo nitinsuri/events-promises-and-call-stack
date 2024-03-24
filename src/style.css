@@ -1,6 +1,8 @@
 :root {
   --highlight-color: #376437;
   --secondary-color: #f0fbf0;
+  --highlight-error: #d2041f;
+  --highlight-error-secondary: #fbf0f0;
 }
 
 * {
@@ -60,4 +62,12 @@ p::before {
 }
 p:hover::before {
   width: 100%;
+}
+
+p.error-message {
+  border-color: var(--highlight-error);
+}
+
+p.error-message:before {
+  background-color: var(--highlight-error-secondary);
 }

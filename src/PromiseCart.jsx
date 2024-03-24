@@ -15,11 +15,9 @@ export default function PromiseCart() {
         const err = new Error('Something is not right!');
         reject(err);
       }
-      fetch('https://random-data-api.com/api/beer/random_beer')
-        .then((res) => {
-          return res.json();
-        })
-        .then((res) => resolve(res.id));
+      setTimeout(function () {
+        resolve(23423432);
+      }, 1000);
     });
   }
 }
