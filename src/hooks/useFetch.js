@@ -18,7 +18,7 @@ export default function useFetch(url) {
       .catch((err) => {
         const errMessage = new Error(err);
         setLoading(false);
-        setError(errMessage.message);
+        // setError(errMessage.message);
       });
   }, [url]);
   return { data, loading, error };
